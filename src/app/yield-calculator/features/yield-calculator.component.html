@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Yield Net Return Simulator</h1>
+  <form (ngSubmit)="calculate()">
+    <label for="purchasePrice">Purchase Price</label>
+    <input type="number" [(ngModel)]="purchasePrice" name="purchasePrice" required>
+
+    <label for="monthlyRent">Monthly Rent</label>
+    <input type="number" [(ngModel)]="monthlyRent" name="monthlyRent" required>
+
+    <button type="submit">Calculate</button>
+  </form>
+
+  <div *ngIf="results">
+    <app-yield-result-card [results]="results"></app-yield-result-card>
+  </div>
+</div>

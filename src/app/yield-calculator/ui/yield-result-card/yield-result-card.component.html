@@ -1,0 +1,7 @@
+<div class="results">
+  <h2>Results</h2>
+  <p>Monthly Net Income: {{ results.netIncomeMonthly  }}</p>
+  <div *ngFor="let return of results.returns">
+    <p>Year {{ return.year }}: Net Income {{ return.netIncome  }}</p>
+  </div>
+</div>

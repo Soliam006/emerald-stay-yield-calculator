@@ -4,7 +4,7 @@ import {YieldReturn} from "../../shared/models/yield-return.model";
 @Injectable({
   providedIn: 'root'
 })
-export class YieldSimulatorService {
+export class YieldCalculatorService {
 
   calculateYield( purchasePrice: number, monthlyRent: number,
                               agencyFees: number[]): any{
