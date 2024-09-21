@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { YieldCalculatorService } from '../../core/data-access/yield-calculator.service';
+import { YieldCalculatorService } from '../../core/data-access/services/yield-calculator.service';
 import {FormsModule} from "@angular/forms";
 import {YieldResultCardComponent} from "../ui/yield-result-card/yield-result-card.component";
 import { MatButtonModule } from '@angular/material/button';
 import {CommonModule} from "@angular/common";
 import {MatIconModule} from "@angular/material/icon";
-
-import { formatNumber } from '@angular/common';
+import { AGENCY_FEES_MOCK } from  '../../core/data-access/mocks/agency-fees.mock';
 
 @Component({
   selector: 'app-yield-calculator',
@@ -18,7 +17,7 @@ import { formatNumber } from '@angular/common';
 export class YieldCalculatorComponent {
   purchasePrice!: number ;
   monthlyRent!: number;
-  agencyFees: number[] = [0.30,0.25,0.20]; // 30% for the first year, 25% for the second year, 20% for the third year
+  agencyFees: number[] = AGENCY_FEES_MOCK;
   results: any;
 
   constructor(private yieldCalculatorService: YieldCalculatorService) { }

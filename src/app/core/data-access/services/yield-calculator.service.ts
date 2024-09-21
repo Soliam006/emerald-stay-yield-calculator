@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {YieldReturn} from "../../shared/models/yield-return.model";
+import {YieldReturn} from "../../../shared/models/yield-return.model";
 
 @Injectable({
   providedIn: 'root'
