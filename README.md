@@ -171,3 +171,15 @@ The **Yield Result Card** dynamically displays the results calculated by the ser
 - **Advanced Analytics**: Add more detailed analytics and visualizations (graphs, charts) for the net return.
 - **User Authentication**: Add user accounts for tracking past yield simulations.
 - **Customization Options**: Allow users to customize the simulation with additional parameters like taxes, maintenance costs, etc.
+
+
+## Screenshots 
+### Desktop vs Mobile Views
+
+| Desktop Home Page | Mobile Home Page |
+|-------------------|------------------|
+| ![Desktop Home](public/screenshots/desktop-home.png) | ![Mobile Home](public/screenshots/mobile-home.png) |
+
+| Desktop Yield Calculator | Mobile Yield Calculator |
+|--------------------------|-------------------------|
+| ![Desktop Yield](public/screenshots/desktop-yield.png) | ![Mobile Yield](public/screenshots/mobile-yield.png) |
