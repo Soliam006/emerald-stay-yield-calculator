@@ -1,4 +1,5 @@
 export interface YieldReturn {
   year: number;
-  netIncome: number;
+  netIncomeMonthly?: number;
+  annualProfitability?: number;
 }

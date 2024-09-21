@@ -1,7 +1,52 @@
-<div class="results">
-  <h2>Results</h2>
-  <p>Monthly Net Income: {{ results.netIncomeMonthly  }}</p>
-  <div *ngFor="let return of results.returns">
-    <p>Year {{ return.year }}: Net Income {{ return.netIncome  }}</p>
-  </div>
-</div>
+
+        <div class="flex flex-col">
+        <mat-card class="result-card my-3 mr-3">
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>account_balance_wallet</mat-icon>
+              Total Return for the First 3 Years
+            </mat-card-title>
+          </mat-card-header>
+              <mat-card-content class="m-2">
+                <p>{{ (results?.totalReturn||0) | number:'1.2-2'  }} %</p>
+              </mat-card-content>
+        </mat-card>
+
+
+          <ng-container *ngIf="results?.returns?.length > 0">
+            <div class="flex flex-col md:flex-row justify-between">
+              <div class="m-2">
+                  <h3 class="p-2"> Net Income for Month</h3>
+                  <mat-card class="result-card  my-3 mr-3" *ngFor="let item of results.returns">
+                    <mat-card-header>
+                      <mat-card-title>
+                        <mat-icon>calendar_today</mat-icon>
+                        Year {{ item.year }}
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="m-2">
+                      <p>{{ (item.netIncomeMonthly || 0) | number:'1.2-2' }} €</p>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+
+              <div class="m-2">
+                  <h3 class="p-2">Annual Profitability</h3>
+                  <mat-card class="result-card  my-3 mr-3" *ngFor="let item of results.returns">
+                  <mat-card-header>
+                    <mat-card-title>
+                      <mat-icon>calendar_today</mat-icon>
+                      Year {{ item.year }}
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content class="m-2">
+                    <p> {{ (item.annualProfitability || 0) | number:'1.2-2' }} %</p>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+
+            </div>
+          </ng-container>
+      </div>
+
+

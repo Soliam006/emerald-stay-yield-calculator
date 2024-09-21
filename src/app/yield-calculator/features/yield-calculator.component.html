@@ -1,16 +1,50 @@
-<div class="container">
-  <h1>Yield Net Return Simulator</h1>
-  <form (ngSubmit)="calculate()">
-    <label for="purchasePrice">Purchase Price</label>
-    <input type="number" [(ngModel)]="purchasePrice" name="purchasePrice" required>
+<section class=" p-4 bg-[#00a062] w-full">
+  <h1 class=" p-10 text-center text-4xl font-bold text-white">Yield Calculator, property investment</h1>
+  <div class="flex flex-col justify-between md:flex-row relative max-w-232 mx-14 my-4 p-10 bg-white rounded-md shadow-md" style="top: 100px;">
+    <div>
+            <form (ngSubmit)="calculate()" #form="ngForm" class="p-4">
+              <div class="flex flex-col">
+                <div class="py-2 flex-col flex">
+                      <label for="purchasePrice" class="pr-4 py-2 font-bold text-[#00a062]">Purchase Price</label>
+                      <input id="purchasePrice" type="number" [(ngModel)]="purchasePrice" name="purchasePrice" required class="px-2 py-2 border-2" #purchasePriceInput="ngModel">
+                      <div *ngIf="purchasePriceInput.invalid && purchasePriceInput.touched" class="text-red-500">Purchase Price is required</div>
+                </div>
+                <div class="py-2 flex-col flex">
+                      <label for="monthlyRent" class="pr-4 py-2 font-bold text-[#00a062]">Monthly Rent</label>
+                      <input id="monthlyRent" type="number" [(ngModel)]="monthlyRent" name="monthlyRent" required class="px-2 py-2 border-2" #monthlyRentInput="ngModel">
+                      <div *ngIf="monthlyRentInput.invalid && monthlyRentInput.touched" class="text-red-500">Monthly Rent is required</div>
+                </div>
+              </div>
+              <button mat-fab extended type="submit" [disabled]="form.invalid" class="my-3 py-2 custom-green-button">
+                Calculate<mat-icon>calculate</mat-icon>
+              </button>
+            </form>
+      </div>
+        <div  class="p-4">
+          <app-yield-result-card [results]="results"></app-yield-result-card>
+        </div>
+    </div>
+</section>
 
-    <label for="monthlyRent">Monthly Rent</label>
-    <input type="number" [(ngModel)]="monthlyRent" name="monthlyRent" required>
-
-    <button type="submit">Calculate</button>
-  </form>
-
-  <div *ngIf="results">
-    <app-yield-result-card [results]="results"></app-yield-result-card>
-  </div>
-</div>
+  <section class=" px-12 w-full bg-[#f5f1ef] pt-40">
+    <div class="max-w-7xl flex flex-col md:flex-row ">
+      <div class="flex-1">
+        <h2 class="text-2xl font-semibold text-gray-800">How Does It Work?</h2>
+      </div>
+      <div class="flex-1">
+        <p class="mt-4 ">
+          Enter your property details and agency fees to get accurate yield net return estimates for the next three years.
+        </p>
+        <ul class="mt-4 space-y-2 ">
+          <li>💸 <strong>Purchase Price:</strong> Total cost of the property.</li>
+          <li>🏠 <strong>Monthly Rent:</strong> Expected rental income per month.</li>
+          <li>📅 <strong>Agency Fees:</strong> Initial fee of 30% in the first year, 25% in the second, and 20% for subsequent years.</li>
+        </ul>
+        <p class="mt-4 ">The calculation of rental yield is straightforward. Divide the annual rental income
+          by the property's purchase price or current market value, then multiply by 100 to get
+          a percentage. For example, if an individual purchases a property for £300,000 and it
+          generates an annual rental income of £18,000, they can calculate the rental yield as
+          6% (£18,000 ÷ £300,000 x 100).</p>
+      </div>
+    </div>
+  </section>

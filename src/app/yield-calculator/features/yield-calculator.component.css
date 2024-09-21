@@ -1,0 +1,8 @@
+.custom-green-button {
+  background-color: #00a362;
+  color: white; /* Cambia el color del texto a blanco */
+}
+
+.custom-green-button:hover {
+  background-color:  #00a062;
+}

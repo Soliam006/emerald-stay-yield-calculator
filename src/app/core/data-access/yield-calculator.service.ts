@@ -6,24 +6,27 @@ import {YieldReturn} from "../../shared/models/yield-return.model";
 })
 export class YieldCalculatorService {
 
-  calculateYield( purchasePrice: number, monthlyRent: number,
+  calculateYield( purchasePrice: number, monthlyRent: number ,
                               agencyFees: number[]): any{
+
     let results = {
-      netIncomeMonthly: 0,
+      totalReturn: 0,
       returns :  [] as YieldReturn[]
     }
 
-    // Calculate the net income monthly and the return on investment for the first 3 years
-    let totalAnnualRent = monthlyRent * 12;
-    let netIncomeFirstYear = totalAnnualRent * (1- agencyFees[0]);
-    let netIncomeSecondYear = totalAnnualRent * (1- agencyFees[1]);
-    let netIncomeThirdYear = totalAnnualRent * (1- agencyFees[2]);
+    let totalYears : number = 0;
 
-    //Save the results in an Array
-    results.netIncomeMonthly = totalAnnualRent / 12;
-    results.returns.push({ year: 1, netIncome: netIncomeFirstYear });
-    results.returns.push({ year: 2, netIncome: netIncomeSecondYear });
-    results.returns.push({ year: 3, netIncome: netIncomeThirdYear });
+    // Calculate the net income and annual profitability for each year
+    for (let i = 0; i < agencyFees.length; i++) {
+      let netIncome : number = monthlyRent  - (monthlyRent * agencyFees[i]);
+      let annualNetIncome : number =((netIncome*12) / purchasePrice ) * 100 ;
+      totalYears += annualNetIncome;
+      //Save the results in an Array
+      results.returns.push({ year: i+1, netIncomeMonthly: netIncome,
+        annualProfitability: annualNetIncome });
+    }
+    // Calculate the total return
+    results.totalReturn = totalYears;
 
     return results;
   }
