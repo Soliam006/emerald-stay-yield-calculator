@@ -1,16 +1,16 @@
 <section class=" p-4 bg-[#00a062] w-full">
   <h1 class=" p-10 text-center text-4xl font-bold text-white">Yield Calculator, property investment</h1>
-  <div class="flex flex-col justify-between md:flex-row relative max-w-232 mx-14 my-4 p-10 bg-white rounded-md shadow-md" style="top: 100px;">
+  <div class="flex flex-col justify-between md:flex-row relative md:max-w-232 md:mx-14 my-4 md:p-10 bg-white rounded-md shadow-md" style="top: 100px;">
     <div>
             <form (ngSubmit)="calculate()" #form="ngForm" class="p-4">
               <div class="flex flex-col">
                 <div class="py-2 flex-col flex">
-                      <label for="purchasePrice" class="pr-4 py-2 font-bold text-[#00a062]">Purchase Price</label>
+                      <label for="purchasePrice" class="py-2 font-bold text-[#00a062]">Purchase Price</label>
                       <input id="purchasePrice" type="number" [(ngModel)]="purchasePrice" name="purchasePrice" required class="px-2 py-2 border-2" #purchasePriceInput="ngModel">
                       <div *ngIf="purchasePriceInput.invalid && purchasePriceInput.touched" class="text-red-500">Purchase Price is required</div>
                 </div>
                 <div class="py-2 flex-col flex">
-                      <label for="monthlyRent" class="pr-4 py-2 font-bold text-[#00a062]">Monthly Rent</label>
+                      <label for="monthlyRent" class=" py-2 font-bold text-[#00a062]">Monthly Rent</label>
                       <input id="monthlyRent" type="number" [(ngModel)]="monthlyRent" name="monthlyRent" required class="px-2 py-2 border-2" #monthlyRentInput="ngModel">
                       <div *ngIf="monthlyRentInput.invalid && monthlyRentInput.touched" class="text-red-500">Monthly Rent is required</div>
                 </div>
