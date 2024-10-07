@@ -1,4 +1,4 @@
-// src/app/validators/non-negative.validator.ts
+// src/app/validators/non-negative.validators.ts
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export function nonNegativeValidator(): ValidatorFn {

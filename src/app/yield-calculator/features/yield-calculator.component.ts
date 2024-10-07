@@ -13,9 +13,10 @@ import { MatButtonModule } from '@angular/material/button';
 import {CommonModule} from "@angular/common";
 import {MatIconModule} from "@angular/material/icon";
 import { AGENCY_FEES_MOCK } from  '../../core/data-access/mocks/agency-fees.mock';
-import { nonNegativeValidator } from '../../validator/non-negative.validator';
 
 import { FormBuilder, Validators } from '@angular/forms';
+import { nonNegativeValidator } from '../../validators/non-negative.validator';
+import { nonZeroValidator } from "../../validators/non-zero.validator";
 
 @Component({
   selector: 'app-yield-calculator',
@@ -32,8 +33,8 @@ export class YieldCalculatorComponent {
   constructor(private yieldCalculatorService: YieldCalculatorService, private fb: FormBuilder) {
 
     this.form = this.fb.group({
-      purchasePrice: new FormControl('', [Validators.required, nonNegativeValidator()]),
-      monthlyRent: new FormControl('', [Validators.required, nonNegativeValidator()])
+      purchasePrice: new FormControl('', [Validators.required, nonNegativeValidator(), nonZeroValidator()]),
+      monthlyRent: new FormControl('', [Validators.required, nonNegativeValidator(), nonZeroValidator()])
     });
   }
 

@@ -7,8 +7,11 @@
     <div class="py-2 flex-col flex">
       <label for="purchasePrice" class="py-2 font-bold text-[#00a062]">Purchase Price</label>
       <input id="purchasePrice" type="number" formControlName="purchasePrice" class="px-2 py-2 border-2">
-      <div *ngIf="form.get('purchasePrice')?.errors?.['nonNegative']" class="text-red-500">
+      <div *ngIf="form.get('purchasePrice')?.errors?.['nonNegative']" class="pt-1 text-red-500">
         Purchase Price must be non-negative
+      </div>
+      <div *ngIf="form.get('purchasePrice')?.errors?.['nonZero']" class="pt-1 text-red-500">
+        Purchase Price should not be Zero
       </div>
       <div *ngIf="form.controls['purchasePrice'].errors?.['required'] && form.get('purchasePrice')?.touched" class="text-red-500">
         Purchase Price is required
@@ -17,8 +20,14 @@
     <div class="py-2 flex-col flex">
       <label for="monthlyRent" class="py-2 font-bold text-[#00a062]">Monthly Rent</label>
       <input id="monthlyRent" type="number" formControlName="monthlyRent" class="px-2 py-2 border-2">
-      <div *ngIf="form.get('monthlyRent')?.invalid && form.get('monthlyRent')?.touched" class="text-red-500">
-        Monthly Rent is required and must be non-negative
+     <div *ngIf="form.get('monthlyRent')?.errors?.['nonNegative']" class="pt-1 text-red-500">
+        Purchase Price must be non-negative
+      </div>
+      <div *ngIf="form.get('monthlyRent')?.errors?.['nonZero']" class="pt-1 text-red-500">
+        Purchase Price should not be Zero
+      </div>
+      <div *ngIf="form.controls['monthlyRent'].errors?.['required'] && form.get('monthlyRent')?.touched" class="text-red-500">
+        Purchase Price is required
       </div>
     </div>
   </div>
