@@ -19,3 +19,7 @@
 .path:hover::after {
   width: 100%;
 }
+.custom-snackbar {
+  background-color: red;
+  color: white;
+}

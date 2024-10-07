@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import {YieldReturn} from "../../../shared/models/yield-return.model";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root'
 })
 export class YieldCalculatorService {
 
+  constructor(private snackBar: MatSnackBar) { }
+
   calculateYield( purchasePrice: number, monthlyRent: number ,
-                              agencyFees: number[]): any{
+                              agencyFees: number[]): { totalReturn: number; returns: YieldReturn[] } {
 
     let results = {
       totalReturn: 0,
@@ -30,5 +33,4 @@ export class YieldCalculatorService {
 
     return results;
   }
-  constructor() { }
 }
